@@ -28,5 +28,5 @@ npm start   # http://localhost:3000
 Importe o repositório. Na Vercel o `vercel.json` já configura tudo (Framework: Other, saída `public`). Na Netlify, use `public` como diretório de publicação.
 
 ## Antes de anunciar
-- Troque o `og:image` em `public/index.html` pela URL absoluta do domínio final (ex.: `https://seudominio.com/assets/escova-5-em-1.webp`) para a prévia de link aparecer no WhatsApp/Facebook.
+- Domínio: `https://lp.vitalify.site` (já usado em `og:image`, `og:url` e `canonical`).
 - Verifique o domínio no Gerenciador de Negócios da Meta e teste o Pixel com o Meta Pixel Helper (eventos `PageView` e `InitiateCheckout`).
