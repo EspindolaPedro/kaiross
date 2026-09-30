@@ -6,3 +6,6 @@ if(topbarMessage){window.setInterval(()=>{topbarMessage.classList.add('is-changi
 
 document.querySelectorAll('a[href*="pay.kaiross.com.br"]').forEach((link)=>{link.addEventListener('click',()=>{if(typeof window.fbq==='function'){window.fbq('track','InitiateCheckout',{value:169.90,currency:'BRL'})}window.dispatchEvent(new CustomEvent('checkout-intent',{detail:{placement:link.textContent.trim()}}))})})
 document.querySelectorAll('.function').forEach((item)=>{item.addEventListener('click',()=>{document.querySelectorAll('.function').forEach((el)=>el.classList.remove('active'));item.classList.add('active')})})
+
+const unboxing=document.querySelector('.unboxing-video');
+if(unboxing&&'IntersectionObserver' in window){new IntersectionObserver((entries)=>{entries.forEach((entry)=>{if(entry.isIntersecting){unboxing.play().catch(()=>{})}else{unboxing.pause()}})},{threshold:.4}).observe(unboxing)}
