@@ -5,7 +5,8 @@ Landing page estática do produto, com checkout na Kaiross e Meta Pixel (`738949
 ## Estrutura
 
 - `public/` — o site (HTML, CSS, JS e imagens). É só isso que vai ao ar.
-- `server.js` — servidor Node simples para rodar localmente ou em hosts Node (Render, Railway…).
+- `scripts/dev-server.js` — servidor Node simples só para rodar localmente (`npm start`).
+- `vercel.json` — faz a Vercel servir `public/` como site estático (sem funções).
 - `ideas.md` — direção visual da página.
 
 ## Rodar localmente
@@ -24,7 +25,7 @@ npm start   # http://localhost:3000
 4. O site fica em `https://<usuario>.github.io/kaiross/`. Para domínio próprio, configure em **Settings → Pages → Custom domain**.
 
 ### Opção 2 — Vercel / Netlify
-Importe o repositório e defina o diretório de saída como `public` (sem comando de build).
+Importe o repositório. Na Vercel o `vercel.json` já configura tudo (Framework: Other, saída `public`). Na Netlify, use `public` como diretório de publicação.
 
 ## Antes de anunciar
 - Troque o `og:image` em `public/index.html` pela URL absoluta do domínio final (ex.: `https://seudominio.com/assets/escova-5-em-1.webp`) para a prévia de link aparecer no WhatsApp/Facebook.
