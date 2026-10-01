@@ -9,3 +9,8 @@ document.querySelectorAll('.function').forEach((item)=>{item.addEventListener('c
 
 const unboxing=document.querySelector('.unboxing-video');
 if(unboxing&&'IntersectionObserver' in window){new IntersectionObserver((entries)=>{entries.forEach((entry)=>{if(entry.isIntersecting){unboxing.play().catch(()=>{})}else{unboxing.pause()}})},{threshold:.4}).observe(unboxing)}
+const policyIds=['privacidade','trocas-e-garantia','termos'];let pageY=0;
+const isPolicy=(hash)=>policyIds.includes(hash.replace('#',''));
+document.addEventListener('click',(e)=>{const a=e.target.closest('a[href^="#"]');if(a&&isPolicy(a.getAttribute('href'))&&!isPolicy(location.hash)){pageY=window.scrollY}},true);
+window.addEventListener('hashchange',()=>{if(isPolicy(location.hash)){const m=document.getElementById(location.hash.slice(1));if(m)m.scrollTop=0}else if(location.hash==='#loja'){window.scrollTo(0,pageY);history.replaceState(null,'',location.pathname+location.search)}});
+document.addEventListener('keydown',(e)=>{if(e.key==='Escape'&&isPolicy(location.hash)){location.hash='loja'}});
